@@ -3,6 +3,7 @@ package com.example.basiccompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -22,22 +23,26 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    Greeting(Message("Any", "builder"))
                 }
             }
         }
     }
 }
-
+data class Message(val author: String, val body: String)
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun Greeting(msg: Message) {
+    Column {
+        Text(text = "Hello ${msg.author}!")
+        Text(text =  msg.body)
+    }
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     BasicComposeTheme {
-        Greeting("Derlys")
+        Greeting(msg = Message("Derlys", "Corpao"))
     }
 }
