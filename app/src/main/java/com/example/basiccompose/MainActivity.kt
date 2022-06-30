@@ -29,11 +29,11 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-data class Message(val author: String, val body: String)
+data class Message(val title: String, val body: String)
 @Composable
 fun Greeting(msg: Message) {
     Column {
-        Text(text = "Hello ${msg.author}!")
+        Text(text = "Hello ${msg.title}!")
         Text(text =  msg.body)
     }
 
