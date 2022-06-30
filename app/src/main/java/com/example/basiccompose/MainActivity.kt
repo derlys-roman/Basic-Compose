@@ -3,6 +3,7 @@ package com.example.basiccompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
@@ -11,6 +12,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.example.basiccompose.ui.theme.BasicComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,9 +34,11 @@ class MainActivity : ComponentActivity() {
 data class Message(val title: String, val body: String)
 @Composable
 fun Greeting(msg: Message) {
-    Column {
-        Text(text = "Hello ${msg.title}!")
-        Text(text =  msg.body)
+    Box (Modifier.fillMaxSize()){
+        Column {
+            Text(text = "Hello ${msg.title}!", fontSize = 21.sp)
+            Text(text =  msg.body)
+        }
     }
 
 }
